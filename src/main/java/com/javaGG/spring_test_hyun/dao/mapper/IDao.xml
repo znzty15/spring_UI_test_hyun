@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javaGG.spring_test_hyun.dao.IDao">
+	<select id="listDao" resultType="com.javaGG.spring_test_hyun.dto.Dto">
+		SELECT * FROM TESTUI ORDER BY ID DESC
+	</select>
+
+	<select id="writeDao">
+		INSERT INTO TESTUI (ID, UNAME, UPHONE1, UPHONE2, UPHONE3, UADDR) VALUES (BOARD_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, #{param5})
+	</select>
+
+	<select id="modifyDao">
+		UPDATE TESTUI SET UPHONE1 = #{param1}, UPHONE2 = #{param2}, UPHONE3 = #{param3}, UADDR = #{param4} WHERE ID = #{param5}
+	</select>
+
+	<select id="modify_viewDao"	resultType="com.javaGG.spring_test_hyun.dto.Dto">
+		SELECT * FROM TESTUI WHERE ID = #{param1}
+	</select>
+
+	<select id="deleteDao">
+		DELETE FROM TESTUI WHERE ID = #{param1}
+	</select>
+		
+</mapper>
